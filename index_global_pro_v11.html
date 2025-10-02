@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>996Coin — Official</title>
+<meta name="description" content="996Coin official landing: whitepaper, ERC-20 contract 0x4ae304be5b0f211f69cc97dfb6913d6d13f45418, tokenomics (with chart), and community links. International multi-language."/>
+<style>
+    :root { --bg:#0a0b0f; --panel:#10131b; --panel2:#161a24; --text:#e9ecf1; --muted:#a9b1c3; --gold:#ffd54a; --gold2:#ffb300; --line:#23283a; --accent:#76c7ff; }
+    * { box-sizing:border-box; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Noto Sans","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif; line-height:1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    header { position:sticky; top:0; z-index:10; backdrop-filter:saturate(180%) blur(8px);
+      background:rgba(10,11,15,.65); border-bottom:1px solid rgba(255,255,255,.06); }
+    .nav { max-width:1200px; margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px }
+    .brand span { color: var(--gold); font-size:20px; }
+    /* HIDE the old language pills completely */
+    .lang { display:none !important; }
+    .hero { position:relative; overflow:hidden; }
+    .hero img.bg { width:100%; height:60vh; object-fit:cover; opacity:.28; filter:grayscale(12%); display:block }
+    .hero .inner { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:28px; }
+    .hero h1 { font-size:44px; margin:0 0 8px; color:var(--gold); text-shadow:0 6px 32px rgba(0,0,0,.6) }
+    .hero p { margin:0; color:#dfe5f4 }
+    .cta { margin-top:18px }
+    .btn { display:inline-block; margin:10px; padding:12px 18px; background:var(--gold); color:#000; font-weight:800;
+      border-radius:12px; box-shadow:0 10px 24px rgba(255,213,74,.15); }
+    .btn:hover { background:var(--gold2) }
+    .wrap { max-width:1100px; margin:0 auto; padding:28px 22px 60px }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; }
+    .card { background:linear-gradient(180deg,var(--panel),var(--panel2)); border:1px solid var(--line); border-radius:16px; padding:20px; box-shadow:0 16px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.04) }
+    h2 { margin:0 0 10px; font-size:22px }
+    .mono { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace }
+    .addr { word-break:break-all; background:#0c0e14; padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,.06); display:flex; align-items:center; justify-content:space-between; gap:8px }
+    .copy { background:#1e2433; color:#fff; border:1px solid rgba(255,255,255,.1); padding:8px 10px; border-radius:8px; cursor:pointer }
+    .pill { display:inline-block; padding:4px 8px; border-radius:8px; background:#23283a; border:1px solid rgba(255,255,255,.06); margin-right:8px }
+    .muted { color: var(--muted) }
+    .section-title { margin:32px 0 10px; color:#f7f8fc; font-size:26px }
+    figure { margin:0; position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--line) }
+    figure img { width:100%; display:block }
+    footer { text-align:center; color: var(--muted); padding:30px 12px; border-top:1px solid rgba(255,255,255,.06) }
+    .badges { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px }
+    .trade { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
+    .chartbox { display:flex; align-items:center; justify-content:center; padding:10px }
+    .legend { margin-top:8px; display:grid; grid-template-columns: repeat(2,minmax(140px,1fr)); gap:6px; }
+    .dot { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:6px; vertical-align:middle }
+    /* Removed .v-ribbon styles since the ribbon is deleted */
+    /* Black-Gold theme for language dropdown (right top) */
+    #lang-select{position:fixed;top:12px;right:12px;z-index:99;padding:8px 12px;border-radius:12px;background:#0a0a0a;color:#ffd54a;font-weight:700;border:1px solid #ffb300;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+    #lang-select option{background:#0a0a0a;color:#ffd54a}
+    @media (max-width:640px){#lang-select{top:10px;right:10px;padding:6px 10px;border-radius:10px}}
+</style>
+</head>
+<body>
+  <!-- Only keep the right dropdown; with flags -->
+  <select id="lang-select" aria-label="Language">
+    <option value="en">🇺🇸 English</option>
+    <option value="zh">🇨🇳 中文</option>
+    <option value="ja">🇯🇵 日本語</option>
+    <option value="ko">🇰🇷 한국어</option>
+    <option value="es">🇪🇸 Español</option>
+    <option value="de">🇩🇪 Deutsch</option>
+    <option value="pt">🇵🇹 Português</option>
+    <option value="vi">🇻🇳 Tiếng Việt</option>
+    <option value="id">🇮🇩 Bahasa Indonesia</option>
+    <option value="fr">🇫🇷 Français</option>
+    <option value="ru">🇷🇺 Русский</option>
+  </select>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="111.jpg" alt="996Coin" style="width:34px;height:34px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,.2)"/>
+      <span>996Coin — Official</span>
+    </div>
+    <!-- removed the old .lang pills -->
+    <div class="lang"></div>
+  </div>
+</header>
+<section class="hero">
+  <img src="333.jpg" class="bg" alt="Hero"/>
+  <div class="inner"><div>
+    <h1 id="t-hero" data-i18n="hero">Workers’ Crypto, Built to Last.</h1>
+    <p id="t-sub" data-i18n="sub">Work, Earn, Revolt. No overtime. No hype. Keep building.</p>
+    <div class="cta"><a class="btn" id="t-join-btn" data-i18n="joinBtn" href="https://t.me/Coin996_Official" target="_blank">Join Telegram</a></div>
+  </div></div>
+</section>
+<div class="wrap">
+  <h2 class="section-title" id="t-about-title" data-i18n="aboutTitle">About 996Coin</h2>
+  <div class="grid">
+    <div class="card">
+      <p class="muted" id="t-about-body" data-i18n="aboutBody">996Coin is an ERC-20 community token for the overworked. A clean token launch with no team allocation and transparent tokenomics.</p>
+      <div class="badges">
+        <span class="pill">ERC-20</span>
+        <span class="pill">COIN996 (C996)</span>
+        <span class="pill">Total: 9,960,000,000</span>
+      </div>
+      <div class="trade">
+        <a class="btn" id="t-uniswap" data-i18n="uniswap" href="https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=0x4ae304be5b0f211f69cc97dfb6913d6d13f45418" target="_blank">Trade on Uniswap</a>
+        <a class="btn" id="t-dexscreener" data-i18n="dexscreener" href="https://dexscreener.com/search?q=0x4ae304be5b0f211f69cc97dfb6913d6d13f45418" target="_blank">View on Dexscreener</a>
+      </div>
+    </div>
+    <figure><img src="222.jpg" alt="Builder"/></figure>
+  </div>
+
+  <h2 class="section-title" id="t-contract-title" data-i18n="contractTitle">Contract</h2>
+  <div class="card">
+    <div class="addr mono">
+      <span id="addr">0x4ae304be5b0f211f69cc97dfb6913d6d13f45418</span>
+      <div>
+        <a class="copy" id="t-view" data-i18n="view" href="https://etherscan.io/token/0x4ae304be5b0f211f69cc97dfb6913d6d13f45418" target="_blank">View on Etherscan</a>
+        <button class="copy" id="t-copy" data-i18n="copy" onclick="copyAddr()">Copy</button>
+      </div>
+    </div>
+    <p class="muted" id="t-tokenline" data-i18n="tokenline" style="margin-top:10px">Token: COIN996 (C996)</p>
+  </div>
+
+  <h2 class="section-title" id="t-tokenomics-title" data-i18n="tokenomicsTitle">Tokenomics</h2>
+  <div class="grid">
+    <div class="card chartbox">
+      <svg id="donut" role="img" aria-label="tokenomics chart" viewBox="0 0 42 42" width="260" height="260">
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#1f2535" stroke-width="8"></circle>
+        <circle class="slice" cx="21" cy="21" r="15.915" fill="transparent" stroke="#4CAF50" stroke-dasharray="70 30" stroke-dashoffset="25" stroke-width="8"></circle>
+        <circle class="slice" cx="21" cy="21" r="15.915" fill="transparent" stroke="#03A9F4" stroke-dasharray="10 90" stroke-dashoffset="-45" stroke-width="8"></circle>
+        <circle class="slice" cx="21" cy="21" r="15.915" fill="transparent" stroke="#FF9800" stroke-dasharray="10 90" stroke-dashoffset="-55" stroke-width="8"></circle>
+        <circle class="slice" cx="21" cy="21" r="15.915" fill="transparent" stroke="#9C27B0" stroke-dasharray="5 95" stroke-dashoffset="-65" stroke-width="8"></circle>
+        <circle class="slice" cx="21" cy="21" r="15.915" fill="transparent" stroke="#E91E63" stroke-dasharray="5 95" stroke-dashoffset="-70" stroke-width="8"></circle>
+        <circle cx="21" cy="21" r="11" fill="#0a0b0f"></circle>
+        <text x="21" y="21" text-anchor="middle" dominant-baseline="middle" font-size="3.3" fill="#e9ecf1">C996</text>
+      </svg>
+      <div style="margin-left:16px">
+        <div class="legend">
+          <div><span class="dot" style="background:#4CAF50"></span><span id="l1" data-i18n="l1">70% Liquidity Pool</span></div>
+          <div><span class="dot" style="background:#03A9F4"></span><span id="l2" data-i18n="l2">10% Treasury / Reserve</span></div>
+          <div><span class="dot" style="background:#FF9800"></span><span id="l3" data-i18n="l3">10% CEX Listings</span></div>
+          <div><span class="dot" style="background:#9C27B0"></span><span id="l4" data-i18n="l4">5% Creator & KOL Promotions</span></div>
+          <div><span class="dot" style="background:#E91E63"></span><span id="l5" data-i18n="l5">5% Airdrops & Campaign Rewards</span></div>
+        </div>
+        <p class="muted" id="t-note" data-i18n="note" style="margin-top:10px">No team tokens. Fair community distribution. Suggested single-holder cap ≤ 0.96%.</p>
+      </div>
+    </div>
+    <figure><img src="555.jpg" alt="Coder"/></figure>
+  </div>
+
+  <h2 class="section-title" id="t-roadmap-title" data-i18n="roadmapTitle"></h2>
+  <div class="grid">
+    <div class="card">
+      <h2 data-i18n="rmap_q4_2025_title">Q4 2025</h2>
+      <ul><li data-i18n="rmap_q4_2025_i1">Build the community and launch on DEX.</li></ul>
+      <h2 data-i18n="rmap_2026h1_title">Q1–Q2 2026</h2>
+      <ul>
+        <li data-i18n="rmap_2026h1_i1">Airdrop campaign; apply to CoinGecko/CMC.</li>
+        <li data-i18n="rmap_2026h1_i2">Community meme contest; launch NFT; KOL/creator promos.</li>
+      </ul>
+      <h2 data-i18n="rmap_2026h2_title">Q3–Q4 2026</h2>
+      <ul>
+        <li data-i18n="rmap_2026h2_i1">List on 10–20 CEXs; 1–2 Tier-1 (MEXC, HTX, KuCoin, Kraken).</li>
+        <li data-i18n="rmap_2026h2_i2">Launch DAO governance.</li>
+      </ul>
+      <h2 data-i18n="rmap_2027_title">Q1–Q4 2027</h2>
+      <ul><li data-i18n="rmap_2027_i1">List on 20–30 CEXs; target 3 top exchanges (Binance, OKX, Gate, Bitget, Bybit).</li></ul>
+      <p class="muted" data-i18n="rmap_slogan">Workers’ crypto · No overtime, no hype · Keep building</p>
+    </div>
+  </div>
+</div>
+<footer id="t-disclaimer" data-i18n="disclaimer">
+  Disclaimer: 996Coin is a community-driven experimental token. Nothing here is financial advice.
+</footer>
+
+<script>
+  function copyAddr() {
+    const sel = window.getSelection();
+    const range = document.createRange();
+    range.selectNode(document.getElementById('addr'));
+    sel.removeAllRanges(); sel.addRange(range);
+    try { document.execCommand('copy'); } catch(e) { console.warn(e); }
+    sel.removeAllRanges();
+    alert('Address copied: 0x4ae304be5b0f211f69cc97dfb6913d6d13f45418');
+  }
+</script>
+<script>
+const i18n = {
+  en: { roadmapTitle:"Roadmap · 路线图", hero:"Workers’ Crypto, Built to Last.", sub:"Work, Earn, Revolt. No overtime. No hype. Keep building.",
+        whitepaperBtn:"Download Whitepaper", joinBtn:"Join Telegram", aboutTitle:"About 996Coin", aboutBody:"996Coin is an ERC-20 community token for the overworked. A clean token launch with no team allocation and transparent tokenomics.",
+        uniswap:"Trade on Uniswap", dexscreener:"View on Dexscreener", contractTitle:"Contract", view:"View on Etherscan", copy:"Copy", tokenline:"Token: COIN996 (C996)", tokenomicsTitle:"Tokenomics",
+        l1:"70% Liquidity Pool", l2:"10% Treasury / Reserve", l3:"10% CEX Listings", l4:"5% Creator & KOL Promotions", l5:"5% Airdrops & Campaign Rewards",
+        note:"No team tokens. Fair community distribution.", disclaimer:"Disclaimer: 996Coin is a community-driven experimental token. Nothing here is financial advice.",
+        rmap_q4_2025_title:"Q4 2025", rmap_q4_2025_i1:"Build the community and launch on DEX.",
+        rmap_2026h1_title:"Q1–Q2 2026", rmap_2026h1_i1:"Airdrop campaign; apply to CoinGecko/CMC.", rmap_2026h1_i2:"Community meme contest; launch NFT; KOL/creator promos.",
+        rmap_2026h2_title:"Q3–Q4 2026", rmap_2026h2_i1:"List on 10–20 CEXs; 1–2 Tier-1 (MEXC, HTX, KuCoin, Kraken).", rmap_2026h2_i2:"Launch DAO governance.",
+        rmap_2027_title:"Q1–Q4 2027", rmap_2027_i1:"List on 20–30 CEXs; target 3 top exchanges (Binance, OKX, Gate, Bitget, Bybit).",
+  },
+  zh: { roadmapTitle:"Roadmap · 路线图", hero:"打工人的虚拟货币，长期主义。", sub:"不想996，先买996；拒绝加班，拒绝炒作，持续建设；建议单人持币不超过0.96%。",
+        whitepaperBtn:"下载白皮书", joinBtn:"加入 Telegram", aboutTitle:"关于 996Coin", aboutBody:"996Coin 是面向打工人的 ERC-20 社区代币；无团队预留，透明公开的代币经济。",
+        uniswap:"在 Uniswap 交易", dexscreener:"在 Dexscreener 查看", contractTitle:"合约", view:"在 Etherscan 查看", copy:"复制", tokenline:"代币：COIN996 (C996)", tokenomicsTitle:"代币分配",
+        l1:"70% 流动池", l2:"10% 储备资金", l3:"10% 交易所上市", l4:"5% 达人/KOL 推广", l5:"5% 空投与活动奖励",
+        note:"无团队代币，公平分发。", disclaimer:"免责声明：本项目为社区实验性代币，不构成投资建议。",
+        rmap_q4_2025_title:"2025年Q4", rmap_q4_2025_i1:"建立社区，上线 DEX。",
+        rmap_2026h1_title:"2026年Q1–Q2", rmap_2026h1_i1:"空投活动，申请 CG/CMC。", rmap_2026h1_i2:"社区 Meme 大赛，上线 NFT，达人宣发",
+        rmap_2026h2_title:"2026年Q3–Q4", rmap_2026h2_i1:"上线10–20个中心化交易所，1–2个 T1（MEXC、HTX、KuCoin、Kraken）。", rmap_2026h2_i2:"推出 DAO 治理。",
+        rmap_2027_title:"2027年Q1–Q4", rmap_2027_i1:"上线20–30个中心化交易所，目标 3 家顶级（Binance、OKX、Gate、Bitget、Bybit）。",
+  },
+  ja: { roadmapTitle:"Roadmap · 路线图", hero:"過労者は立ち上がる。", sub:"働き、稼ぎ、抗う。残業なし、煽りなし、継続開発。",
+        whitepaperBtn:"ホワイトペーパーをダウンロード", joinBtn:"Telegram に参加", aboutTitle:"996Coin について", aboutBody:"過労者のための ERC-20 コミュニティトークン。チーム割当なし、透明なトークノミクス。",
+        uniswap:"Uniswap で取引", dexscreener:"Dexscreener を表示", contractTitle:"コントラクト", view:"Etherscan で見る", copy:"コピー", tokenline:"トークン：COIN996 (C996)", tokenomicsTitle:"トークノミクス",
+        l1:"70% 流動性プール", l2:"10% 予備金", l3:"10% CEX 上場", l4:"5% クリエイター/KOL プロモーション", l5:"5% エアドロップとキャンペーン",
+        note:"チームトークンなし。フェア配布。", disclaimer:"免責事項：本トークンはコミュニティ主導の実験的プロジェクトであり、投資助言ではありません。",
+        rmap_q4_2025_title:"2025年Q4", rmap_q4_2025_i1:"コミュニティ構築、DEX上場。",
+        rmap_2026h1_title:"2026年Q1–Q2", rmap_2026h1_i1:"エアドロップ実施、CoinGecko/CMC申請。", rmap_2026h1_i2:"コミュニティMemeコンテスト、NFTローンチ、インフルエンサー発信。",
+        rmap_2026h2_title:"2026年Q3–Q4", rmap_2026h2_i1:"CEX 10～20社に上場、Tier-1を1～2社（MEXC, HTX, KuCoin, Kraken）。", rmap_2026h2_i2:"DAOガバナンス開始。",
+        rmap_2027_title:"2027年Q1–Q4", rmap_2027_i1:"CEX 20～30社に上場、トップ取引所3社を目標（Binance, OKX, Gate, Bitget, Bybit）。",
+  },
+  ko: { roadmapTitle:"Roadmap · 路线图", hero:"과로한 자들이 일어선다.", sub:"일하고, 벌고, 저항하라. 야근 금지, 선동 금지, 꾸준한 빌드.",
+        whitepaperBtn:"백서 다운로드", joinBtn:"텔레그램 참여", aboutTitle:"996Coin 소개", aboutBody:"과로한 사람들을 위한 ERC-20 커뮤니티 토큰. 팀 배정 없음, 투명한 토크노믹스.",
+        uniswap:"Uniswap 거래", dexscreener:"Dexscreener 보기", contractTitle:"컨트랙트", view:"Etherscan에서 보기", copy:"복사", tokenline:"토큰: COIN996 (C996)", tokenomicsTitle:"토크노믹스",
+        l1:"70% 유동성 풀", l2:"10% 준비금", l3:"10% 거래소 상장", l4:"5% 크리에이터/KOL 프로모션", l5:"5% 에어드랍 및 캠페인 보상",
+        note:"팀 토큰 없음. 공정 분배.", disclaimer:"면책: 본 토큰은 커뮤니티 주도의 실험적 프로젝트이며 투자 조언이 아닙니다.",
+        rmap_q4_2025_title:"2025년 Q4", rmap_q4_2025_i1:"커뮤니티 구축, DEX 상장.",
+        rmap_2026h1_title:"2026년 Q1–Q2", rmap_2026h1_i1:"에어드롭 캠페인, CoinGecko/CMC 신청.", rmap_2026h1_i2:"커뮤니티 밈 대회, NFT 출시, 인플루언서 홍보.",
+        rmap_2026h2_title:"2026년 Q3–Q4", rmap_2026h2_i1:"CEX 10–20곳 상장, 티어1 1–2곳 목표(MEXC, HTX, KuCoin, Kraken).", rmap_2026h2_i2:"DAO 거버넌스 출시.",
+        rmap_2027_title:"2027년 Q1–Q4", rmap_2027_i1:"CEX 20–30곳 상장, 최상위 거래소 3곳 목표(Binance, OKX, Gate, Bitget, Bybit).",
+  },
+  fr: { roadmapTitle:"Roadmap · 路线图", hero:"Les surmenés se lèveront.", sub:"Travailler, gagner, se révolter. Pas d’heures sup, pas de hype, on construit.",
+        whitepaperBtn:"Télécharger le livre blanc", joinBtn:"Rejoindre Telegram", aboutTitle:"À propos de 996Coin", aboutBody:"Jeton communautaire ERC-20 pour les surmenés. Aucun jeton d'équipe, tokenomics transparent.",
+        uniswap:"Trader sur Uniswap", dexscreener:"Voir sur Dexscreener", contractTitle:"Contrat", view:"Voir sur Etherscan", copy:"Copier", tokenline:"Jeton : COIN996 (C996)", tokenomicsTitle:"Tokenomics",
+        l1:"70% Pool de liquidité", l2:"10% Trésorerie / Réserve", l3:"10% Listings CEX", l4:"5% Promotions Créateurs & KOL", l5:"5% Airdrops & Récompenses",
+        note:"Aucun jeton d'équipe. Distribution équitable.", disclaimer:"Avertissement : projet expérimental dirigé par la communauté, pas un conseil financier.",
+        rmap_q4_2025_title:"T4 2025", rmap_q4_2025_i1:"Construire la communauté et lister sur un DEX.",
+        rmap_2026h1_title:"T1–T2 2026", rmap_2026h1_i1:"Airdrop ; demandes CoinGecko/CMC.", rmap_2026h1_i2:"Concours de mème ; NFT ; promos KOL.",
+        rmap_2026h2_title:"T3–T4 2026", rmap_2026h2_i1:"Cotation sur 10–20 CEX ; 1–2 Tier-1 (MEXC, HTX, KuCoin, Kraken).", rmap_2026h2_i2:"Lancement de la gouvernance DAO.",
+        rmap_2027_title:"T1–T4 2027", rmap_2027_i1:"Cotation sur 20–30 CEX ; viser 3 exchanges top (Binance, OKX, Gate, Bitget, Bybit).",
+  },
+  ru: { roadmapTitle:"Roadmap · 路线图", hero:"Переутомлённые восстанут.", sub:"Работай, зарабатывай, сопротивляйся. Без овертаймов, без хайпа, строим дальше.",
+        whitepaperBtn:"Скачать whitepaper", joinBtn:"Вступить в Telegram", aboutTitle:"О 996Coin", aboutBody:"Сообщественный токен ERC-20 для переработчиков. Без доли команды, прозрачная токеномика.",
+        uniswap:"Торговать на Uniswap", dexscreener:"Смотреть в Dexscreener", contractTitle:"Контракт", view:"Смотреть в Etherscan", copy:"Копировать", tokenline:"Токен: COIN996 (C996)", tokenomicsTitle:"Токеномика",
+        l1:"70% Пул ликвидности", l2:"10% Резерв", l3:"10% Листинги на CEX", l4:"5% Промо создателей/KOL", l5:"5% Airdrop и награды",
+        note:"Нет токенов команды. Справедливое распределение.", disclaimer:"Отказ от ответственности: экспериментальный токен сообщества, не является инвестсоветом.",
+        rmap_q4_2025_title:"IV кв. 2025", rmap_q4_2025_i1:"Построить сообщество и выйти на DEX.",
+        rmap_2026h1_title:"I–II кв. 2026", rmap_2026h1_i1:"Airdrop; заявки в CoinGecko/CMC.", rmap_2026h1_i2:"Конкурс мемов, запуск NFT, промо у лидеров мнений.",
+        rmap_2026h2_title:"III–IV кв. 2026", rmap_2026h2_i1:"Листинг на 10–20 CEX; 1–2 топ-биржи (MEXC, HTX, KuCoin, Kraken).", rmap_2026h2_i2:"Запуск DAO-управления.",
+        rmap_2027_title:"I–IV кв. 2027", rmap_2027_i1:"Листинг на 20–30 CEX; цель — 3 топ-биржи (Binance, OKX, Gate, Bitget, Bybit).",
+  }
+};
+
+(function(){
+  function collectKeys(){
+    var keys = {}; document.querySelectorAll('[data-i18n]').forEach(function(el){ var k = el.getAttribute('data-i18n'); if (k) keys[k]=1; });
+    return Object.keys(keys);
+  }
+  function normalize(){
+    var en = i18n.en || {}; var keys = collectKeys();
+    Object.keys(i18n).forEach(function(lang){
+      var pack = i18n[lang] || {}; i18n[lang] = pack;
+      keys.forEach(function(k){ if (pack[k] == null) pack[k] = en[k] != null ? en[k] : (pack[k]||""); });
+    });
+  }
+  function render(lang){
+    var pack = i18n[lang] || i18n.en || {};
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var k = el.getAttribute('data-i18n'); if (k && pack[k] != null) el.innerText = pack[k];
+    });
+    document.documentElement.setAttribute('lang', lang);
+  }
+  window.setLang = function(lang){
+    try{ localStorage.setItem('lang', lang); }catch(e){}
+    normalize(); render(lang);
+    var sel = document.getElementById('lang-select'); if (sel) sel.value = lang;
+  };
+  document.addEventListener('DOMContentLoaded', function(){
+    var sel = document.getElementById('lang-select');
+    if (sel){ sel.addEventListener('change', function(){ window.setLang(this.value); }); }
+    // Force default English regardless of browser
+    window.setLang('en');
+  });
+})();
+</script>
+</body>
+</html>
