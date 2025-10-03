@@ -47,6 +47,8 @@
     #lang-select{position:fixed;top:12px;right:12px;z-index:99;padding:8px 12px;border-radius:12px;background:#0a0a0a;color:#ffd54a;font-weight:700;border:1px solid #ffb300;box-shadow:0 8px 24px rgba(0,0,0,.35)}
     #lang-select option{background:#0a0a0a;color:#ffd54a}
     @media (max-width:640px){#lang-select{top:10px;right:10px;padding:6px 10px;border-radius:10px}}
+
+#t-x{background:#d4af37!important;color:#000!important;border-color:#d4af37!important;}
 </style>
 </head>
 <body>
@@ -85,7 +87,8 @@
   <div class="inner"><div>
     <h1 id="t-hero" data-i18n="hero">Workers’ Crypto, Built to Last.</h1>
     <p id="t-sub" data-i18n="sub">Don't want 996, buy 996 first; refuse to work overtime, refuse to hype, keep building; it is suggested that holding of coins by a single person should not exceed 0.96%.</p>
-    <div class="cta"><a class="btn" id="t-join-btn" data-i18n="joinBtn" href="https://t.me/Coin996_Official" target="_blank" rel="noopener noreferrer">Join Telegram</a></div>
+    <div class="cta"><a class="btn" id="t-join-btn" data-i18n="joinBtn" href="https://t.me/Coin996_Official" target="_blank" rel="noopener noreferrer">Join Telegram</a>
+  <a class="btn" id="t-x" data-i18n="xBtn" href="https://x.com/Coin996Official" target="_blank" rel="noopener noreferrer">X</a></div>
   </div></div>
 </section>
 <div class="wrap">
@@ -414,5 +417,17 @@ const i18n = {
   });
 })();
 </script>
+
+<script>
+try {
+  if (typeof i18n === 'object') {
+    Object.keys(i18n).forEach(function(k){
+      if (!i18n[k]) i18n[k] = {};
+      i18n[k].xBtn = 'X';
+    });
+  }
+} catch(e) {}
+</script>
+
 </body>
 </html>
